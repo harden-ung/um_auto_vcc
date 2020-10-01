@@ -269,6 +269,7 @@ const handleAutoProcesses = async (account) => {
     ]
 
     const data = await generateData(account)
+    console.log('handling data', data)
 
     if (proxies.length > 0) {
       const proxy = getRandomFromArr(proxies, 1)[0]
@@ -294,7 +295,9 @@ const handleAutoProcesses = async (account) => {
       deviceScaleFactor: 1,
     })
 
-    await enhancedHandleProxyType(page, data.usedProxy)
+    if (proxies.length > 0) {
+      await enhancedHandleProxyType(page, data.usedProxy)
+    }
 
     try {
       await enhancedLogin(page, data.account.email, data.account.password)
@@ -384,9 +387,13 @@ const handleAutoProcesses = async (account) => {
       break
     } catch (error) {
       // add to error data if not exist
-      console.log('*** ERROR FOUND ***')
+
       if (retryNumber === maxRetryNumber) {
+        console.log('*** ERROR FOUND ***')
         console.log('reach maxRetryNumber while adding card')
+      } else {
+        console.log('counter:', retryNumber)
+        console.log('vcc is does not work, using new vcc')
       }
       if (errorData.every((da) => da.account.email !== data.account.email)) {
         errorData.push(data)

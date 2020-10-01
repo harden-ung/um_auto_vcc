@@ -1,5 +1,6 @@
 git update-index --assume-unchanged settings.json
 git update-index --assume-unchanged proxies.txt
+git update-index --assume-unchanged accounts.txt
 git update-index --assume-unchanged data.txt
 git update-index --assume-unchanged reports/*
 
