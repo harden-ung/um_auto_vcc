@@ -1,0 +1,7 @@
+node_modules
+settings.png
+data.txt
+proxies.txt
+vccs.txt
+reports/*
+temp/*

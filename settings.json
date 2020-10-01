@@ -1,0 +1,7 @@
+{
+  "headless": false,
+  "useVCC": false,
+  "devMode": false,
+  "maxRetryNumber": 8,
+  "ramdomCountriesToSelect": ["TH", "SG", "ES", "NO"]
+}
